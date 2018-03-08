@@ -15,15 +15,15 @@ public class ConnectionTest {
 			Class.forName( "com.mysql.jdbc.Driver" );
 			
 			//2. 연결하기
+			//String url="jdbc:cafe24://localhost/dev";
 			String url="jdbc:mysql://localhost/dev";
-			//conn = DriverManager.getConnection(url, null);
 			conn = DriverManager.getConnection(url, "dev", "dev");
 			System.out.println( "연결 성공" );
 			
 		} catch (ClassNotFoundException e) {
 			System.out.println( "드라이버 로딩 실패:" + e );
 		} catch (SQLException e ) {
-			System.out.println( "에러:" + e );
+			e.printStackTrace();
 		} finally {
 			try {
 				if( conn != null ) {
